@@ -68,9 +68,8 @@ section .text
     ;
     ; _SCAN FUNCTION | FUNCIÓN _SCAN
     ;
+    ;   1. Pointer to buffer        | Puntero a buffer
     ;   2. Number of bytes to read  | Número de bytes a leer
-    ;
-    ;   ret Pointer to readBuffer
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     scan:
         ; Preamble  | Preámbulo
