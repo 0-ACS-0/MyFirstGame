@@ -1,0 +1,28 @@
+\documentclass[a5paper, 10pt, twoside]{book}
+\usepackage[top=1.5cm, bottom=1.5cm, inner=1cm, outer=2cm]{geometry}
+
+\usepackage{hyperref}
+
+\usepackage{lmodern}
+\usepackage[document]{ragged2e}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+\setlength{\parskip}{10pt}%
+\setlength{\parindent}{0pt}%
+
+\begin{document}
+    % Basic configuration of the document %
+    \fontfamily{lmtt}
+    \fancyhf{}
+
+    % Body of the document %
+    \include{Chapters/title.tex}
+    \include{Chapters/abstract.tex}
+
+    \tableofcontents
+
+    \input{Chapters/introduction.tex}
+\end{document}
