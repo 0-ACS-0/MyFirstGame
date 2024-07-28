@@ -19,7 +19,7 @@ section .text
         mov eax, 3              ; System call number for sys_read       | Llamada al sistema a sys_read
         mov ebx, 0              ; File descriptor 0 (stdin)             | Descriptor de archivo 0 (stdin)
         mov ecx, %1             ; Buffer where the input will be stored | Memoria donde la entrada será almacenada  
-        mov edx, %2              ; Maximum number of bytes to read       | Máximo número de bytes a leer
+        mov edx, %2             ; Maximum number of bytes to read       | Máximo número de bytes a leer
         int 0x80
     %endmacro
 
