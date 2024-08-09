@@ -25,11 +25,10 @@
 ################################
 
 ## PROJECT NAME | NOMBRE DEL PROYECTO ##
-PROJECT = myfirstgame
+PROJECT = snakee
 
 ## WORKSPACE DIRECTORIES | DIRECTORIOS DEL ESPACIO DEL TRABAJO ##
 SRCD = ./src
-ASMD = ./asm
 INCD = ./inc
 BUILDD = ./build
 OBJD = ./build/obj
@@ -42,14 +41,10 @@ CFLAGS = -g -O2 -Wall
 CFLAGS += -m32
 CFLAGS += -I $(INCD)
 
-AS = nasm
-ASFLAGS = -f elf32
-
 ## FILE NAMES AND ROUTES | NMBRE DE LOS ARCHIVOS Y RUTAS ##
 SRC = $(wildcard $(SRCD)/*.c)
-ASM = $(wildcard $(ASMD)/*.asm)
 
-OBJ = $(SRC:$(SRCD)/%.c=$(OBJD)/%.o) $(ASM:$(ASMD)/%.asm=$(OBJD)/%.o)
+OBJ = $(SRC:$(SRCD)/%.c=$(OBJD)/%.o)
 DEP = $(OBJ:.o=.d)
 
 
@@ -93,12 +88,6 @@ $(OBJD)/%.o : $(SRCD)/%.c
 	@echo Generating $@ and $(@:.o=.d) file in $(BUILDD)/... --- Generando el archivo $@ y $(@:.o=.d) en $(BUILDD)/
 	@$(CC) $(CFLAGS) -MMD -c $< -o $@
 	@mv $(@:.o=.d) $(DEPD)
-	@echo Generated object and dependency file! --- ¡Archivo objeto y dependencia generada!
-	@echo -e
-
-$(OBJD)/%.o : $(ASMD)/%.asm
-	@echo Generating FROM ASSEMBLY $@ file in $(BUILDD)/... --- Generando DESDE ENSAMBLADOR el archivo $@ en $(BUILDD)/
-	@$(AS) $(ASFLAGS) $< -o $@
 	@echo Generated object and dependency file! --- ¡Archivo objeto y dependencia generada!
 	@echo -e
 
